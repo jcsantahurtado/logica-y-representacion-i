@@ -1,0 +1,12 @@
+Sintaxis 
+
+PARA (inicialización de la variable de control; condición de control; incremento)
+	{
+		Bloque de código (cuerpo del ciclo - conjunto de sentencias o instrucciones)
+		Este conjunto de instrucciones son las que se van a ejecutar en cada iteración
+		...
+	}
+	
+	
+	
+Usado más que todo para validar datos y crear menús
