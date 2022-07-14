@@ -9,45 +9,64 @@ public class Ejercicio03 {
 		/*
 		 * 3) Se tienen n registros y cada uno contiene: cédula, nombre, horas
 		 * trabajadas, valor hora trabajada y porcentaje de deducción. Se pide exhibir
+		 * 
+		 * a) La cédula, el nombre y el salario devengado por cada empleado
+		 * 
+		 * b) Monto total de deducciones
+		 * 
+		 * c) Cuánto pagó la empresa por concepto de salarios
 		 */
 
-		int nVentas, uVendidas;
-		float vUnidad, vVenta, tVendido;
-		String nombreArticulo;
-
-		tVendido = 0;
+		int nRegistros, horasTrabajadas;
+		float valorHora, porcentajeDeduccion, valorDeducion, totalDeduciones, salarioNetoTrabajador, salarioFinalTrabajador, nominaEmpresa;
+		String cedulaTrabajador, nombreTrabajador;
+		
+		totalDeduciones = 0;
+		nominaEmpresa = 0;
 
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.print("Cuántos ventas vas a ingresar?: ");
-		nVentas = scanner.nextInt();
+		System.out.print("Cuántos registros vas a ingresar?: ");
+		nRegistros = scanner.nextInt();
 
-		for (int i = 0; i < nVentas; i++) {
+		for (int i = 0; i < nRegistros; i++) {
 
 			System.out.println();
 
-			System.out.print("Nombre del articulo: ");
+			System.out.print("Nombre del trabajador: ");
 			scanner.nextLine();
-			nombreArticulo = scanner.nextLine();
+			nombreTrabajador = scanner.nextLine();
 
-			System.out.print("Número de unidades vendidas: ");
-			uVendidas = scanner.nextInt();
+			System.out.print("Cédula del trabajador: ");
+			cedulaTrabajador = scanner.nextLine();
 
-			System.out.print("Valor por unidad: ");
-			vUnidad = scanner.nextFloat();
-
-			vVenta = uVendidas * vUnidad;
-			tVendido += vVenta;
+			System.out.print("Horas trabajadas: ");
+			horasTrabajadas = scanner.nextInt();
+			
+			System.out.print("Valor hora trabajada: ");
+			valorHora = scanner.nextFloat();
+			
+			System.out.print("Porcentaje de deducción: ");
+			porcentajeDeduccion = scanner.nextFloat();
+			
+			salarioNetoTrabajador = horasTrabajadas * valorHora;
+			valorDeducion = salarioNetoTrabajador * porcentajeDeduccion / 100;
+			salarioFinalTrabajador = salarioNetoTrabajador - valorDeducion;
+			
+			totalDeduciones += valorDeducion;
+			nominaEmpresa += salarioFinalTrabajador;
 
 			System.out.println();
-			System.out.println(" - - - DATOS DE VENTA #" + (i + 1) + " - - -");
-			System.out.println("Nombre del artículo: " + nombreArticulo);
-			System.out.println("Valor de la venta:   " + vVenta);
+			System.out.println(" - - - COMPRIBANTE DE PAGO #" + (i + 1) + " - - -");
+			System.out.println("Cédula del empleado:   " + cedulaTrabajador);
+			System.out.println("Nombre del empleado: " + nombreTrabajador);
+			System.out.println("Salario devengado: " + salarioFinalTrabajador);
 
 		}
 
 		System.out.println();
-		System.out.println("TOTAL VENDIDO POR ESTE ALMACÉN: " + tVendido);
+		System.out.println("Monto total de deducciones: " + totalDeduciones);
+		System.out.println("La empresa por concepto de salarios pagó: " + nominaEmpresa);
 
 	}
 
